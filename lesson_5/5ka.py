@@ -19,8 +19,10 @@ driver = webdriver.Chrome(service=s,
 
 driver.get('https://5ka.ru/special_offers')
 
+# закрываем окно с предупреждением о куках
 button = driver.find_element(By.XPATH, "//span[contains(text(),'Принять')]")
 button.click()
+
 
 while True:
     wait = WebDriverWait(driver, 10)
