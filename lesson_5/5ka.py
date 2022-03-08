@@ -7,16 +7,22 @@ from selenium.webdriver.support import expected_conditions as EC
 
 
 s = Service('./chromedriver')
-chrome_options = Options()
-chrome_options.add_argument("--headless")
+# chrome_options = Options()
+# chrome_options.add_argument("--headless")
 
-driver = webdriver.Chrome(service=s, options=chrome_options)
+#
+driver = webdriver.Chrome(service=s,
+                          # options=chrome_options,
+                          # executable_path='C:/chromedriver/chromedriver.exe'
+                          )
 # driver.implicitly_wait(10)
 
 driver.get('https://5ka.ru/special_offers')
 
+# закрываем окно с предупреждением о куках
 button = driver.find_element(By.XPATH, "//span[contains(text(),'Принять')]")
 button.click()
+
 
 while True:
     wait = WebDriverWait(driver, 10)
